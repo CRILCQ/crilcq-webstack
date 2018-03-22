@@ -7,6 +7,10 @@ services:
             - crilcq_mysql:/var/lib/mysql
         networks:
             - crilcqnet
+        environment:
+            - TZ=Canada/Eastern
+            - MYSQL_ALLOW_EMPTY_PASSWORD=no
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 
     nginx-proxy:
         image: jwilder/nginx-proxy
