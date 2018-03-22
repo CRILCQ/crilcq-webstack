@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source ../.env
 
 echo "Initialisation de la base de données"
