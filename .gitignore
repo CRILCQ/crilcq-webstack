@@ -287,5 +287,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-data/*
+data/alfresco
+data/website
 .vscode
