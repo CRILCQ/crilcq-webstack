@@ -41,7 +41,8 @@ services:
     #     image: crilcq/alfresco
     #     container_name: crilcq-alfresco
     #     volumes:
-    #         - crilcq_alfresco:/alf_data
+    #         - crilcq_alf_data:/alf_data
+    #         - crilcq_tomcat:/var/lib/tomcat7
     #     networks:
     #         - crilcqnet
     #     environment:
