@@ -18,7 +18,7 @@ echo "Ok"
 echo
 
 echo "Initialisation du site"
-echo -n "- Copie des données (l'opération peut prendre plusieurs minutes)... "
+echo -n "- Copie des données (l'opération va prendre plusieurs minutes)... "
 cat ../data/website/typo3.tar.bz2 | docker exec -i crilcq-website tar Cxjf /var/www/html/ -
 echo "Ok"
 
