@@ -1,0 +1,59 @@
+version: '3'
+services:
+    mysql:
+        image: mysql:${MYSQL_VERSION}
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=no
+            - MYSQL_ROOT_PASSWORD=00496CD69C0D2572FBBA705FC1D1
+            - TZ=Canada/Eastern
+        container_name: crilcq-mysql
+        # ports:
+        #     - 3306:3306
+        volumes:
+            - crilcq_mysql:/var/lib/mysql
+        networks:
+            - crilcqnet
+
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        container_name: crilcq-proxy
+        ports:
+            - 80:80
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+        networks:
+            - crilcqnet
+
+    website:
+        image: crilcq/website
+        container_name: crilcq-website
+        volumes:
+            - crilcq_site_webroot:/var/www/html
+        networks:
+            - crilcqnet
+        environment:
+            - VIRTUAL_HOST=~^(www\.)?crilcq.org
+        depends_on:
+            - mysql
+            # - alfresco
+
+    # alfresco:
+    #     image: crilcq/alfresco
+    #     container_name: crilcq-alfresco
+    #     volumes:
+    #         - crilcq_alfresco:/alf_data
+    #     networks:
+    #         - crilcqnet
+    #     environment:
+    #         - VIRTUAL_HOST=alfresco.crilcq.org
+    #         - VIRTUAL_PORT=8080
+    #     depends_on:
+    #         - mysql
+
+volumes:
+    crilcq_mysql:
+    crilcq_site_webroot:
+    # crilcq_alfresco:
+
+networks:
+    crilcqnet:
