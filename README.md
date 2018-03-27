@@ -11,7 +11,7 @@ Solution docker-compose pour l'ensemble des ressources web du CRILCQ
     cd crilcq-webstack
     ```
 
-2. Modifier le fichier d'environement (``.env`` dans la racine de la solution) en spécifiant les mots de passe souhaités pour les différents systèmes
+2. Modifier le fichier d'environement en spécifiant les mots de passe souhaités pour les différents systèmes
 
     ```shell
     nano .env
