@@ -27,7 +27,7 @@ Solution docker-compose pour l'ensemble des ressources web du CRILCQ
 
     ```shell
     cd data
-    curl http://{url-du-serveur}/data.tar | tar -xv
+    curl http://{url-du-serveur/chemin}/data.tar | tar -xv
     ```
 
 5. Lancer les script d'initialisation :
