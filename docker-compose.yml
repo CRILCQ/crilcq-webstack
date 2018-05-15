@@ -35,6 +35,18 @@ services:
             - mysql
             - alfresco
 
+    orion:
+        image: httpd:2.4
+        container_name: crilcq-orion
+        volumes:
+            - crilcq_orion:/usr/local/apache2/htdocs
+        networks:
+            - crilcqnet
+        environment:
+            - VIRTUAL_HOST=orion.crilcq.org
+        depends_on:
+            - alfresco
+
     alfresco:
         image: crilcq/alfresco
         container_name: crilcq-alfresco
@@ -52,6 +64,7 @@ services:
 volumes:
     crilcq_mysql:
     crilcq_site_webroot:
+    crilcq_orion:
     crilcq_alf_data:
     crilcq_tomcat:
 

@@ -27,15 +27,18 @@ Solution docker-compose pour l'ensemble des ressources web du CRILCQ
 
     ```shell
     cd data
-    curl http://{url-du-serveur/chemin}/data.tar | tar -xv
+    curl http://{hostname/chemin}/data.tar | tar -xv
     ```
 
 5. Lancer les script d'initialisation :
 
     ```shell
     cd ../scripts
-    ./init-website.sh
-    ./init-alfresco.sh
+    ./init-stack.sh
     ```
 
-6. Accéder au site publié à l'adresse http://www.crilcq.org. Il est nécessaire d'apporter des modifications à la configuration du service DNS local ou au fichier ``/etc/hosts`` du client si le déploiement est fait sur un autre système que celui référencé par les services DNS globaux.
+6. Tester l'accès aux sites publiés:
+    - <http://www.crilcq.org>
+    - <http://alfresco.crilcq.org/alfresco>
+
+    Il est nécessaire d'apporter des modifications à la configuration du service DNS local ou au fichier ``/etc/hosts`` du client si le déploiement est fait sur un autre système que celui référencé par les services DNS globaux.

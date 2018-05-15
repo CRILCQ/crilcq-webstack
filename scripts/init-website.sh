@@ -22,5 +22,15 @@ echo "Ok"
 
 echo -n "- Application des nouveaux mots de passe... "
 docker exec crilcq-website /bin/sed -Ei "s/'password' => '[^']+'/'password' => '$MYSQL_TYPO3_PASSWORD'/g" /var/www/html/crilcq.org/typo3conf/LocalConfiguration.php
-docker exec crilcq-website /bin/sed -Ei "s/'installToolPassword' => '[^']+'/'password' => '$TYPO3_INSTALL_TOOL_PASSWORD'/g" /var/www/html/crilcq.org/typo3conf/LocalConfiguration.php
+# docker exec crilcq-website /bin/sed -Ei "s/'installToolPassword' => '[^']+'/'installToolPassword' => '$TYPO3_INSTALL_TOOL_PASSWORD'/g" /var/www/html/crilcq.org/typo3conf/LocalConfiguration.php
+docker exec crilcq-website /bin/sed -Ei "s/username = \"[^\"]+\";/username = \"typo3\";/g" /var/www/html/crilcq.org/fileadmin/berenice.php
+docker exec crilcq-website /bin/sed -Ei "s/username = \"[^\"]+\";/username = \"typo3\";/g" /var/www/html/crilcq.org/fileadmin/calendar.php
+docker exec crilcq-website /bin/sed -Ei "s/username = \"[^\"]+\";/username = \"typo3\";/g" /var/www/html/crilcq.org/fileadmin/calendrier_udem.php
+docker exec crilcq-website /bin/sed -Ei "s/username = \"[^\"]+\";/username = \"typo3\";/g" /var/www/html/crilcq.org/fileadmin/projets.php
+docker exec crilcq-website /bin/sed -Ei "s/username = \"[^\"]+\";/username = \"typo3\";/g" /var/www/html/crilcq.org/fileadmin/thesesmemoires.php
+docker exec crilcq-website /bin/sed -Ei "s/password = \"[^\"]+\";/password = \"$MYSQL_TYPO3_PASSWORD\";/g" /var/www/html/crilcq.org/fileadmin/berenice.php
+docker exec crilcq-website /bin/sed -Ei "s/password = \"[^\"]+\";/password = \"$MYSQL_TYPO3_PASSWORD\";/g" /var/www/html/crilcq.org/fileadmin/calendar.php
+docker exec crilcq-website /bin/sed -Ei "s/password = \"[^\"]+\";/password = \"$MYSQL_TYPO3_PASSWORD\";/g" /var/www/html/crilcq.org/fileadmin/calendrier_udem.php
+docker exec crilcq-website /bin/sed -Ei "s/password = \"[^\"]+\";/password = \"$MYSQL_TYPO3_PASSWORD\";/g" /var/www/html/crilcq.org/fileadmin/projets.php
+docker exec crilcq-website /bin/sed -Ei "s/password = \"[^\"]+\";/password = \"$MYSQL_TYPO3_PASSWORD\";/g" /var/www/html/crilcq.org/fileadmin/thesesmemoires.php
 echo "Ok"
